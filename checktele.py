@@ -222,7 +222,7 @@ def gen_user(choice):
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.تشيكر تلي"))
 async def _(event):
-    if ispay2[0] == "no":
+    if ispay2[0] == "yes":
         await event.edit(tele_checker)
     else:
         await event.edit("يجب الدفع لاستعمال هذا الامر !")
@@ -230,7 +230,7 @@ async def _(event):
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
 async def _(event):
-    if ispay2[0] == "no":
+    if ispay2[0] == "yes":
         await xdexer.send_file(event.chat_id, 'banned.txt')
     else:
         await event.edit("يجب الدفع لاستعمال هذا الامر !")
@@ -238,7 +238,7 @@ async def _(event):
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def _(event):
-    if ispay2[0] == "no":
+    if ispay2[0] == "yes":
         await event.edit(tele_checker2)
     else:
         await event.edit("يجب الدفع لاستعمال هذا الامر !")
@@ -249,7 +249,7 @@ async def _(event):
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.كلايم (.*)"))
 async def _(event):
-    if ispay2[0] == "no":
+    if ispay2[0] == "yes":
         isclaim.clear()
         isclaim.append("on")
         msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 2)
@@ -260,7 +260,7 @@ async def _(event):
 
         @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.حك"))
         async def _(event):
-            if ispay2[0] == "no":
+            if ispay2[0] == "yes":
                 if "on" in isclaim:
                     await event.edit(f"  الكلايم يعمل!  ")
                 elif "off" in isclaim:
@@ -270,7 +270,7 @@ async def _(event):
             else:
                 pass
         for i in range(int(msg[0])):
-            if ispay2[0] == 'no':
+            if ispay2[0] == 'yes':
                 break
             username = ""
 
@@ -319,7 +319,7 @@ i Catch new User!
 
 @xdexer.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت (.*)"))
 async def _(event):
-    if ispay2[0] == "no":
+    if ispay2[0] == "yes":
         
         msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
         if msg[0] == "تلقائي":  # تثبيت تلقائي عدد يوزر قناة
@@ -339,7 +339,7 @@ async def _(event):
                 else:
                     await event.edit("خطأ")
             for i in range(int(msg[0])):
-                if ispay2[0] == 'no':
+                if ispay2[0] == 'yes':
                     break
                 t = Thread(target=lambda q, arg1: q.put(
                     check_user(arg1)), args=(que, username))
